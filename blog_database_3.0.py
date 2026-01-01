@@ -182,7 +182,7 @@ def search_post_by_author(): #option 3
         line_pointer = 0
         for line in all_lines:
             line_pointer += 1
-            if re.search(rf"^AUTHOR\s*:\s*{searched_blog_by_author}$", line, re.IGNORECASE):
+            if re.search(rf"^AUTHOR\s*:\s*{searched_blog_by_author}$", line.strip(), re.IGNORECASE):
                 found = True
                 start = line_pointer
                 while start>=0 and "=== BLOG START ===" not in all_lines[start]:
@@ -254,7 +254,7 @@ def search_post_by_coauthor(): #option 4
         line_pointer = 0
         for line in all_lines:
             line_pointer += 1
-            if re.search(rf"^CO-AUTHOR\s*:\s*{searched_blog_by_coauthor}$", line, re.IGNORECASE):
+            if re.search(rf"^CO-AUTHOR\s*:\s*{searched_blog_by_coauthor}$", line.strip(), re.IGNORECASE):
                 found = True
                 start = line_pointer
                 while start>=0 and "=== BLOG START ===" not in all_lines[start]:
@@ -276,7 +276,7 @@ def search_post_by_coauthor(): #option 4
                         print(all_lines[start].strip())
                     start += 1
     if found == False:
-        print("\nBlog not Found for this author!\n")
+        print("\nBlog not Found for this co-author!\n")
     #```````````````````````````````````````````````
 
 
@@ -289,7 +289,6 @@ def search_post_by_coauthor(): #option 4
             break
     #````````````
 #````````````````
-
 
 
 
@@ -333,7 +332,7 @@ def search_post_by_date(): #option 5
         line_pointer = 0
         for line in all_lines:
             line_pointer += 1
-            if re.search(rf"^DATE\s*:\s*{searched_blog_by_date}$", line, re.IGNORECASE):
+            if re.search(rf"^DATE\s*:\s*{searched_blog_by_date}$", line.strip(), re.IGNORECASE):
                 found = True
                 start = line_pointer
                 while start>=0 and "=== BLOG START ===" not in all_lines[start]:
@@ -355,7 +354,7 @@ def search_post_by_date(): #option 5
                         print(all_lines[start].strip())
                     start += 1
     if found == False:
-        print("\nBlog not Found for this author!\n")
+        print("\nBlog not Found for given date!\n")
 
 
     #   taking input to go back to main menu
@@ -379,7 +378,7 @@ def clear_screen():     #   function to clear screen
 
 
 
-def main_menu():
+def main_menu():    #   main CLI
 #```````````````
 
 
@@ -387,12 +386,29 @@ def main_menu():
 
 
         #   program that tracks count of how much blogs has been posted till now and stores in a variable
-        with open("BD.txt", "r") as f:
+        try:
+            with open("BD.txt", "r") as f:
+                total_number_of_blog = 0
+                for each_line in f:
+                    if "INDEX : " in each_line:
+                        extracted_data = each_line.split(":")
+                        total_number_of_blog = int(extracted_data[1].strip())
+        
+        except FileNotFoundError:
             total_number_of_blog = 0
-            for each_line in f:
-                if "INDEX : " in each_line:
-                    extracted_data = each_line.split(":")
-                    total_number_of_blog = int(extracted_data[1].strip())
+            clear_screen()
+            print(Fore.RED + Style.BRIGHT + "\nDisclaimer: BD.txt file is missing!")
+            print(Fore.YELLOW + "Creating new BD.txt with header...\n")
+
+            time.sleep(2)
+
+            with open("BD.txt", "w") as f:
+                f.write("=== BLOG DATABASE CREATED ===\n")
+
+            for i in range(3, 0, -1):
+                clear_screen()
+                print(Fore.LIGHTGREEN_EX + f"New BD.txt created successfully! Redirecting in {i} seconds...")
+                time.sleep(1)
         #   ``````````````````````````````````````````````````````````````
 
 
