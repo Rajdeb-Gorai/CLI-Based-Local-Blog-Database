@@ -1,1 +1,22 @@
 ___ Header ___
+
+-----------------------------
+
+=== BLOG START ===
+
+INDEX : 1
+
+TITLE : First blog
+
+AUTHOR : Rajdeb Gorai
+
+CO-AUTHOR : Myself
+
+BLOG : 
+
+This is the first post I am sharing in the system.
+  	This is the second line to test multiline input!
+
+DATE : 02-01-26
+
+=== BLOG END ===
