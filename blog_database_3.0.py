@@ -403,7 +403,7 @@ def main_menu():    #   main CLI
             time.sleep(2)
 
             with open("BD.txt", "w") as f:
-                f.write("=== BLOG DATABASE CREATED ===\n")
+                f.write("=== BLOG DATABASE CREATED === DATE : " + datetime.now().strftime("%d-%m-%y") + "\n")
 
             for i in range(3, 0, -1):
                 clear_screen()
