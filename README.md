@@ -12,6 +12,15 @@ You can download the latest `.exe` build from the [Releases page](https://github
 
 - **Windows users**: Download `blog_database.exe` and run it directly.
 - No need to install Python or dependencies.
+---
+
+## ⚡ Quick Start (Windows Executable)
+1. Create a new folder (e.g., `BlogDB`).
+2. Place `blog_database.exe` inside that folder.
+3. Run `blog_database.exe`.
+4. A `BD.txt` file will be generated in the same folder to store your blogs.
+---  
+
 
 ## ✨ Features
 
