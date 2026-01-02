@@ -1,3 +1,12 @@
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+
+
+
+
+
 # 📝 Simple Blog Database (CLI)
 
 A simple **command-line blog database** built in Python.  
