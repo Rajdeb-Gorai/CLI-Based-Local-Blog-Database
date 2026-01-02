@@ -8,7 +8,7 @@ It uses **Colorama** for colored terminal output and provides a clean, interacti
 
 ## 📦 Download Executable
 
-You can download the latest `.exe` build from the [Releases page](https://github.com/<your-username>/<repo-name>/releases).
+You can download the latest `.exe` build from the [Releases page](https://github.com/Rajdeb-Gorai/CLI-Based-Local-Blog-Database/releases).
 
 - **Windows users**: Download `blog_database.exe` and run it directly.
 - No need to install Python or dependencies.
